@@ -38,8 +38,20 @@ function load() {
 	exit;
 }
 
+/**
+ * Deletes the plugin on the shutdown hook.
+ */
 function schedule_plugin_for_removal() {
 	add_action( 'shutdown', function() {
-		delete_plugins( [ plugin_basename(__FILE__) ] );
+		delete_plugins( [ main_plugin_file_basename() ] );
 	} );
+}
+
+/**
+ * Returns the plugin's directory name and main plugin file.
+ *
+ * @return string Plugin directory name and plugin filename.
+ */
+function main_plugin_file_basename() {
+	return plugin_basename(__FILE__);
 }
