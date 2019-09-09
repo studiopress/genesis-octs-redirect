@@ -40,6 +40,6 @@ function load() {
 
 function schedule_plugin_for_removal() {
 	add_action( 'shutdown', function() {
-		delete_plugins( [ 'genesis-octs-redirect/genesis-octs-redirect.php' ] );
+		delete_plugins( [ plugin_basename(__FILE__) ] );
 	} );
 }
