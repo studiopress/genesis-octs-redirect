@@ -2,6 +2,7 @@
 /**
  * Plugin Name: Genesis One-Click Theme Setup Redirector
  * Plugin Description: Redirects users to the Genesis OCTS page the first time they log into wp-admin after using the Site Templates feature in Portal.
+ * Version: 1.0
  */
 namespace wpengine\genesis\octs_redirect;
 
