@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+  bundle:
+    docker:
+      - image: 'cimg/python:3.9.0'
+    steps:
+      - checkout:
+          path: genesis-octs-redirect
+      - run:
+          name: Make artifacts build directory
+          command: |
+            [ ! -d "artifacts" ] && mkdir artifacts &>/dev/null
+      - run:
+          name: "Bundle plugin files into a zip"
+          command: |
+            FILENAME_ZIP=genesis-octs-redirect.1.0.0.zip
+            zip -x@genesis-octs-redirect/.circleci -r "artifacts/$FILENAME_ZIP" genesis-octs-redirect/
+      - store_artifacts:
+          path: artifacts
+
+workflows:
+  deploy:
+    jobs:
+      - bundle:
+          filters:
+            tags:
+              only: /.*/
