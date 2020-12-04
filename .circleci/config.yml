@@ -24,7 +24,7 @@ jobs:
           name: "Bundle plugin files into a zip"
           command: |
             FILENAME_ZIP=genesis-octs-redirect.$PRODUCT_VERSION.zip
-            zip -x@genesis-octs-redirect/.circleci -r "artifacts/$FILENAME_ZIP" genesis-octs-redirect/
+            zip -x "genesis-octs-redirect/.circleci/*" -x "genesis-octs-redirect/.git/*" -r "artifacts/$FILENAME_ZIP" genesis-octs-redirect/
       - run:
           name: "Setup json file"
           command: cp genesis-octs-redirect/.circleci/readme.json artifacts/genesis-octs-redirect.$PRODUCT_VERSION.json
