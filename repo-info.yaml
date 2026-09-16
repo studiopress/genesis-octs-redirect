@@ -4,7 +4,6 @@ metadata:
   name: genesis-octs-redirect
 spec:
   type: repository
-  owner: team-gen
   engineeringExcellence:
     exemptedChecks:
       dependabotAutomationPresent:
